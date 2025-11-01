@@ -50,7 +50,7 @@ func main() {
 		w.Header().Set("Content-Type", "application/json")
 		w.Write(m)
 	})
-	port := config.GetPort()
+	port := ":" + config.GetPort()
 	fmt.Printf("\n listening on %s", port)
 	http.ListenAndServe(port, r)
 }
