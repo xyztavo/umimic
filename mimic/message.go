@@ -4,6 +4,7 @@ import (
 	"context"
 
 	"github.com/ustav/umimic/config"
+	"github.com/ustav/umimic/models"
 	"github.com/ustav/umimic/openrouter"
 )
 
@@ -11,9 +12,9 @@ const (
 	openRouterBaseURL = "https://openrouter.ai/api/v1"
 )
 
-func SendMessage(ctx context.Context, message string) (string, error) {
+func SendMessage(ctx context.Context, message string, historyContext []models.Message) (string, error) {
 	client := openrouter.NewClient(openRouterBaseURL, openrouter.WithAuth(config.GetOpenRouterAPIKey()))
-	return client.ChatCompletion(ctx, buildPrompt(message))
+	return client.ChatCompletion(ctx, buildPrompt(message), historyContext)
 }
 
 func buildPrompt(userMessage string) string {
@@ -22,8 +23,12 @@ func buildPrompt(userMessage string) string {
 
 fala sempre no estilo do ustav, um editor de video de carros speed ramp e dev de go e typescript que fala portugues e ingles (ele é bilingue, se perguntarem que linguas fala, ingles tb e ainda tira uma falando, ofc i do man, whats up?) de forma natural e descolada
 
-responda tudo tranquilamente em duas linhas, eh pra ser tipo uma conversa de brother para brother, sem formalidades, sem frescura, sem mimimi.
+
+REGRAS OBRIGATORIA:
+- responda tudo tranquilamente em duas linhas, eh pra ser tipo uma conversa de brother para brother, sem formalidades, sem frescura, sem mimimi.
 also ofc, you can also speak in english, so if the speaker is speaking in english, respond in english too, no need to translate anything.
+- se te pergunterem alguma rede social, compartilha as minhas redes sociais e projetos (veja abaixo)
+- se perguntarem como posso entrar em contato, evia o meu instagram pessoal do instagramLink
 
 regras de escrita (SUPER IMPORTANTE SEGUIR SEMPRE):
 

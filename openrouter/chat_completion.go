@@ -7,44 +7,34 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+
+	"github.com/ustav/umimic/models"
 )
 
-type (
-	OpenRouterRequest struct {
-		Model    string `json:"model"`
-		Messages []struct {
-			Role    string `json:"role"`
+type OpenRouterRequest struct {
+	Model    string           `json:"model"`
+	Messages []models.Message `json:"messages"`
+}
+
+type OpenRouterResponse struct {
+	Choices []struct {
+		Message struct {
 			Content string `json:"content"`
-		} `json:"messages"`
-	}
+		} `json:"message"`
+	} `json:"choices"`
+}
 
-	OpenRouterResponse struct {
-		Choices []struct {
-			Message struct {
-				Content string `json:"content"`
-			} `json:"message"`
-		} `json:"choices"`
-	}
-
-	DataResponse struct {
-		Message string
-	}
-)
-
-func (c *Client) ChatCompletion(ctx context.Context, message string) (string, error) {
+func (c *Client) ChatCompletion(ctx context.Context, userMessage string, history []models.Message) (string, error) {
 	url := c.baseURL + "/chat/completions"
 
+	messages := append(history, models.Message{
+		Role:    "user",
+		Content: userMessage,
+	})
+
 	requestBody := OpenRouterRequest{
-		Model: "openai/gpt-4o-mini",
-		Messages: []struct {
-			Role    string `json:"role"`
-			Content string `json:"content"`
-		}{
-			{
-				Role:    "system",
-				Content: message,
-			},
-		},
+		Model:    "openai/gpt-4o-mini",
+		Messages: messages,
 	}
 
 	jsonBody, err := json.Marshal(requestBody)
@@ -52,7 +42,7 @@ func (c *Client) ChatCompletion(ctx context.Context, message string) (string, er
 		return "", fmt.Errorf("error marshaling request: %v", err)
 	}
 
-	req, err := http.NewRequest(http.MethodPost, url, bytes.NewBuffer(jsonBody))
+	req, err := http.NewRequestWithContext(ctx, http.MethodPost, url, bytes.NewBuffer(jsonBody))
 	if err != nil {
 		return "", fmt.Errorf("failed to create request: %v", err)
 	}

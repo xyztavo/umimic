@@ -35,7 +35,7 @@ func main() {
 			http.Error(w, err.Error(), http.StatusBadRequest)
 			return
 		}
-		message, err := mimic.SendMessage(r.Context(), body.Message)
+		message, err := mimic.SendMessage(r.Context(), body.Message, body.History)
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
