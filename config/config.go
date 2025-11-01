@@ -3,6 +3,7 @@ package config
 import (
 	"fmt"
 	"os"
+	"strings"
 
 	"github.com/joho/godotenv"
 )
@@ -22,10 +23,12 @@ func GetPort() string {
 	return os.Getenv("PORT")
 }
 
-func GetAllowedOrigin() string {
-	return os.Getenv("ALLOWED_ORIGIN")
-}
+func GetAllowedOrigins() []string {
+	origins := os.Getenv("ALLOWED_ORIGINS")
+	// Remove aspas (caso estejam no .env)
+	origins = strings.Trim(origins, `"'`)
 
-func GetRailwayHealthCheckOrigin() string {
-	return os.Getenv("RAILWAY_HEALTH_CHECK_ORIGIN")
+	parts := strings.Split(origins, ",")
+
+	return parts
 }
