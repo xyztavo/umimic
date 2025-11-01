@@ -20,3 +20,7 @@ func GetOpenRouterAPIKey() string {
 func GetPort() string {
 	return os.Getenv("PORT")
 }
+
+func GetAllowedOrigin() string {
+	return os.Getenv("ALLOWED_ORIGIN")
+}
