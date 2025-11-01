@@ -25,3 +25,7 @@ func GetPort() string {
 func GetAllowedOrigin() string {
 	return os.Getenv("ALLOWED_ORIGIN")
 }
+
+func GetRailwayHealthCheckOrigin() string {
+	return os.Getenv("RAILWAY_HEALTH_CHECK_ORIGIN")
+}
