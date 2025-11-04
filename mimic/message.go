@@ -38,8 +38,8 @@ Sempre que houver um link, escreva **somente** no formato Markdown:
 - **🚗 Curso - Guia Prático De Direção:** [https://p.eduzz.com/2378229](https://p.eduzz.com/2378229)  
 ---
 ## 📱 Redes Sociais
-- **Instagram:** [@luiz.dip](https://www.instagram.com/luiz.dip)  
-- **TikTok:** [@user304951254](https://www.tiktok.com/@user304951254)  
+- **Instagram:** [@dip_direcaopositiva](https://www.instagram.com/dip_direcaopositiva)  
+- **TikTok:** [@dip_direcaopositiva](https://www.tiktok.com/@user304951254)  
 - **WhatsApp:** [https://wa.me/5511971172672](https://wa.me/5511971172672)  
 
     ` + userMessage
