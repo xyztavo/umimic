@@ -33,7 +33,6 @@ Sempre que houver um link, escreva **somente** no formato Markdown:
 # Informacoes
 ## 💬 Contatos e Links
 - **📞 Whatsapp:** [https://wa.me/5511971172672](https://wa.me/5511971172672](https://wa.me/5511971172672?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20pacotes.)  
-- **🌐 Website:** [https://www.direcaopositiva.com.br/](https://www.direcaopositiva.com.br/)  
 - **🎓 Curso - Dirigir Com Tranquilidade:** [https://p.eduzz.com/2382782](https://p.eduzz.com/2382782)  
 - **🚗 Curso - Guia Prático De Direção:** [https://p.eduzz.com/2378229](https://p.eduzz.com/2378229)  
 ---
