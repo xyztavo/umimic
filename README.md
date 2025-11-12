@@ -187,4 +187,6 @@ Feel free to open issues or pull requests.
 
 ## License
 
+MIT License - see [LICENSE](LICENSE) file for details.
+
 Made with ❤️ by ustav
