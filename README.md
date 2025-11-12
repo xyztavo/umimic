@@ -17,6 +17,19 @@ A Go-based API for creating personalized chatbots using OpenRouter, with support
 - OpenRouter API
 - Chi/CORS (middleware)
 
+## Pricing
+
+This API uses OpenRouter to access AI models. The default model is `openai/gpt-4o-mini`, which has the following approximate costs:
+
+| Volume | Input Cost | Output Cost | Estimated Total* |
+|--------|-----------|-------------|------------------|
+| 1,000 messages | $0.15 | $0.60 | ~$0.75 |
+| 10,000 messages | $1.50 | $6.00 | ~$7.50 |
+
+*Based on average message length of 100 input tokens and 400 output tokens.
+
+You can check current pricing and switch to other models at [openrouter.ai/docs/models](https://openrouter.ai/docs/models). OpenRouter supports various models with different price points, from budget-friendly to premium options.
+
 ## Local Development
 
 ### Prerequisites
@@ -102,45 +115,26 @@ Checks if the API is running.
 ```
 
 ## Deployment
-
-### Railway (Free Tier)
-
-Railway provides 500 hours per month on the free plan, which is more than sufficient.
-
-1. Create an account at [railway.app](https://railway.app)
-
-2. Connect your GitHub repository
-
-3. Click "New Project" > "Deploy from GitHub repo"
-
-4. Select the `umimic` repository
-
-5. Add environment variables:
-   - `OPENROUTER_API_KEY`
-   - `PORT` (Railway will set this automatically, but you can force 3000)
-   - `ALLOWED_ORIGINS` (add your frontend URL)
-
-6. Railway will automatically detect the Go project and build it
-
-7. After deployment, you will receive a generated URL like `umimic-production.up.railway.app`
-
-### DisCloud (Free Tier)
+### DisCloud
 
 DisCloud offers a free plan with 256MB RAM and 1GB storage.
 
 1. Create an account at [discloud.app](https://discloud.app)
 
 2. Create a `discloud.config` file in the project root:
-```
+2.1 Register your subdomain on discloud
+
+```env
+ID=umimic
 TYPE=site
 MAIN=main.go
+NAME=Umimic
 RAM=256
-AUTORESTART=true
-VERSION=recommended
-APT=tools
+VERSION=latest
 ```
 
-3. Upload the compressed project (zip) through the DisCloud panel
+3. Upload the via github the project with the branch
+
 
 4. Add environment variables in the panel:
    - `OPENROUTER_API_KEY`
