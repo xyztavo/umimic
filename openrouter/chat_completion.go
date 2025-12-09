@@ -33,7 +33,7 @@ func (c *Client) ChatCompletion(ctx context.Context, userMessage string, history
 	})
 
 	requestBody := OpenRouterRequest{
-		Model:    "openai/gpt-4o-mini",
+		Model:    "google/gemini-2.5-flash-lite",
 		Messages: messages,
 	}
 
