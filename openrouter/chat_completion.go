@@ -33,8 +33,7 @@ func (c *Client) ChatCompletion(ctx context.Context, userMessage string, history
 	})
 
 	requestBody := OpenRouterRequest{
-		// Model:    "google/gemini-2.5-flash-lite",
-		Model:    "google/gemma-3n-e2b-it:free",
+		Model:    "google/gemini-2.5-flash-lite",
 		Messages: messages,
 	}
 
