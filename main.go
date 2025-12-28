@@ -75,7 +75,7 @@ func main() {
 		w.WriteHeader(201)
 		json.NewEncoder(w).Encode(map[string]string{"status": "created"})
 	})
-	r.Get("/{userlink}", func(w http.ResponseWriter, r *http.Request) {
+	r.Get("/short/{userlink}", func(w http.ResponseWriter, r *http.Request) {
 		userlink := chi.URLParam(r, "userlink")
 		url := fmt.Sprintf("%s/get/%s", config.GetRedisURL(), userlink)
 		req, _ := http.NewRequest("GET", url, nil)
