@@ -32,3 +32,11 @@ func GetAllowedOrigins() []string {
 
 	return parts
 }
+
+func GetRedisURL() string {
+	return os.Getenv("UPSTASH_REDIS_REST_URL")
+}
+
+func GetRedisToken() string {
+	return os.Getenv("UPSTASH_REDIS_REST_TOKEN")
+}
